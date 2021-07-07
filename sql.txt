@@ -1,0 +1,33 @@
+--First script
+select
+          a.account_id,
+          c.cust_id as customer_id,
+          a.avail_balance as balance
+
+from
+          account as a,
+          customer as c
+
+where
+          a.cust_id = c.cust_id and
+          a.status = 'ACTIVE' and
+          a.avail_balance > 1000
+ 
+
+
+--Second script
+select
+          a.account_id,
+          c.fed_id,
+          p.name
+
+from
+          account as a,
+          customer as c,
+          product as p
+
+where
+          a.product_cd = p.product_cd and
+          a.cust_id = c.cust_id and
+          c.cust_type_cd = 'I'
+
